@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Animated Spinners
+	</title>
+	<style type="text/css">
+		
+		.s1{
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			width: 64px;
+			height: 64px;
+			border-radius: 64px;
+
+		}
+		.s1::before{
+			position: absolute;
+			content: "";
+			width: 64px;
+			height: 64px;
+			border-radius: 64px;
+			color: orangered;
+
+			box-shadow: inset -5px 0 0 5px currentColor;
+			clip: rect(0, 64px, 32px,0);
+			animation: rotator 1s infinite ease;
+		}
+@keyframes rotator{
+	0%{
+		transform: rotate(-180deg);
+		box-shadow: inset -5px 0 0 5px currentColor;
+	}
+	50%{
+		transform: rotate(0deg);
+		box-shadow: inset -1px 0 0 1px currentColor;
+	}
+	100%{
+		transform: rotate(180deg);
+		box-shadow: inset -5px 0 0 5px currentColor;
+	}
+}
+.s2{
+	position: relative;
+	margin: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	background-color: #323b40;
+}
+.s2::before,
+.s2::after{
+	position: absolute;
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+	border-radius: 16px;
+	background-color: inherit;
+}
+.s2::before{
+	transform: translateX(-120%);
+	transform-origin: 32px 50%;
+	animation: or1 1s infinite linear;
+}
+.s2::after{
+	transform: translateX(120%);
+	transform-origin: -16px 50%;
+	animation: or2 1s infinite linear;
+}
+@keyframes or1{
+	0%{
+		transform: translateX(-120%) rotate(180deg);
+	}
+
+	30%{
+		transform: translateX(-120%) rotate(0deg);
+	}
+	70%{
+		transform: translateX(-120%) rotate(0deg);
+	}
+	100%{
+		transform: translateX(-120%) rotate(-180deg);
+	}
+}
+@keyframes or2{
+	0%{
+		transform: translateX(120%) rotate(180deg);
+	}
+
+	30%{
+		transform: translateX(120%) rotate(0deg);
+	}
+	70%{
+		transform: translateX(120%) rotate(0deg);
+	}
+	100%{
+		transform: translateX(120%) rotate(-180deg);
+	}
+}
+
+	</style>
+
+</head>
+<body>
+<h4>Example 1....</h4>
+<div class="s1"></div>
+
+<br><br>
+<h2>Example 2....</h2>
+<div class="s2"></div>
+</body>
+</html>
